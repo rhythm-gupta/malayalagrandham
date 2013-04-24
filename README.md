@@ -10,7 +10,9 @@ File structure
 --------------
 
 server/passenger_wsgi.py   => Server configuration required in production mode.
+
 db/smc_bib.sql.gz 				=> DB Dump as on 6th April 2013. 
+
 grandham/         				=> Source
 
 
@@ -19,10 +21,15 @@ TODOs
 06-04-2013
 ----------
 Bump up the Django version - will change all the directory structure.
+
 Error handling - Currently the error handling is very minimum.
+
 Follow CURD - Search is currently POST and not GET. Look out for more.
+
 Pagination - Search results are not paginated.
+
 Better layout - Work on a better layout.
+
 Optimization - Coding was done without caring much about best practises nor is it optimized. 
 
 
