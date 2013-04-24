@@ -1,0 +1,12 @@
+<frameset rows="10%,90%" border=0/>
+<frame src="base"/>
+<frameset cols="30%,70%">
+<frameset rows="35%,65%">
+<frame src="try1"/>
+<frame src="ddc"/>
+</frameset>
+<frame src="try1"/>
+</frameset>
+</frameset>
+
+

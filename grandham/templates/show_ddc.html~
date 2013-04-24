@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Choose your Subject{% endblock %}
+{% block content %}
+
+<table align="center" border=0 WIDTH=50% id='table1' class='content'  >
+	<tr aalign="center"><td>DDC</td><td>Subject</td></tr>
+	{% for i in ddc %}
+		<tr id= {{ i }} aalign="right">
+		{% for j in i %}
+			<td><code>{{ j }}</code></td>
+			
+		{% endfor %}
+		
+		</tr>
+		{% endfor %}	

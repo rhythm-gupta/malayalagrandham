@@ -1,0 +1,60 @@
+{%  extends "base.html" %}
+{%  block title %}പൂര്‍ണ്ണവിവരം{% endblock %}
+{%  block head %}പൂര്‍ണ്ണവിവരം{% endblock %}
+{% block content %}
+<div id="main">
+<a><table border=1 width=100% height="10px">
+<tr align=center>
+<td>
+   <p>&nbsp&nbsp{{ subject }}&nbsp;({{ list.DDC }})</p>
+</td>   
+</tr>
+<tr align =left>
+<td>	
+     <p>{{ list.Author }}</p>
+ </td>    
+</tr>
+<tr align=left>
+      <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ list.Title }}. 
+  {% ifequal list.Vol 'None' %}
+  {% else %}  
+     വാല്യം {{ list.Vol }}; 
+  {% endifequal %}
+  {% ifequal list.Edition 'None' %}
+  {% else %}    
+     എഡിഷന്‍ {{ list.Edition }}
+  {% endifequal %}
+  {% ifequal list.Year 'None' %}
+  {% else %}   
+  . {{ list.Year }}
+  {% endifequal %}
+  </p>
+ </tr> 
+ <tr align=left>
+ <td>
+ <p>
+ {% ifequal list.TiTleorg 'None' %}
+{% else %}
+ മൂലശീര്‍ഷകം: {{ list.Titleorg }}
+{% endifequal %} 
+ </p>
+ </td></tr>
+
+ <tr>
+ <td>
+<p>മുഖവുര: {{ list.Preface }}; ചിത്രണം: {{ list.Illustrator }}</p> 
+ </td>
+ </tr>
+ <tr align=left>
+ <td>
+ <p>പരമ്പര: {{ list.Series }}</p>
+ </td></tr>
+ <tr align=left>
+ <td>
+ <p>[{{ list.Location }}]</p>
+ </td></tr>
+ </table>
+ </a>
+ </div>  
+       
+{% endblock %}

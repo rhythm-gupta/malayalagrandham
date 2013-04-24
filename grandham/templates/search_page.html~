@@ -1,0 +1,78 @@
+
+{% extends "base.html" %}
+{% block external %}
+  <link rel="stylesheet"
+    href="/site_media/jquery.autocomplete.css"
+    type="text/css" />
+  
+  <script type="text/javascript"
+    src="/site_media/jquery.bgiframe.min.js"></script>
+  <script type="text/javascript"
+    src="/site_media/jquery.autocomplete.js"></script>
+  <script type="text/javascript"
+    src="/site_media/title_autocomplete.js"></script>
+  <script type="text/javascript"
+    src="/site_media/author_autocomplete.js"></script>
+    
+		
+{% endblock %}
+
+{% block title %}Search database{% endblock %}
+{% block head %}Search database{% endblock %}
+{% block content %}
+<div id="main_search">	
+<table>
+<form method="post" action=".">
+<tr>
+	<td>	Author :</td><td><input type="text" id="author" name="author" size="35"/></td>
+</tr>
+<tr>	
+	<td>	Title :</td><td><input type="text" id="title" name="title" size="35"/></td>
+</tr>
+<tr>	
+		{% if setddc %}
+  			<td>DDC Subject:</td><td><input type="text" id="id_ddc" name="ddc" value="{{ val }}" size="35"></td>
+  			{% else %}
+  			<td>DDC Subject:</td><td><input type="text" id="id_ddc" name="ddc"  size="35"></td>
+  			{% endif %}
+</tr>
+<tr>		
+  	<td>	<input type="submit" class="submit" value="Search" /></td>
+			</form>
+</tr>
+</table>
+	
+	<div id="ddc">
+	<table align="center" border=0 width=30% name="myddc" id="myddc" class='content'  >
+	<thead>
+	<tr aalign="center"><th class="alt">DDC</th><th class="alt">Subject</th><th class="alt"> </th></tr>
+	</thead>
+	<tbody>
+	{% for i in ddc %}
+		<tr id="{{ i }}" aalign="right" valign="top">
+		{% for j in i %}
+			<td>{{ j }}</td>
+			
+		{% endfor %}
+		
+		<td><code><form calss="form" action="/chooseddc/" method="POST"><input type="hidden" name="ddc1" value = "{{ i }}" /><input class = "choose1" type="submit" value="Select" />
+</form></code></td>
+		</tr>
+		{% endfor %}	
+		
+</tbody>
+	</table>	
+</div>	
+</div>
+<div id="sidebar">
+<table class="highlighttable" border=0 cellspacing=7>
+		{% if show_results %}
+			{% include "search_results.html" %}
+		{% else %}
+		<a>Please Enter key words in the appropriate fields, or choose a subject from the DDC look-up table</a>
+		{% endif %}
+			
+	</table>
+</div>	
+{% endblock %}
+

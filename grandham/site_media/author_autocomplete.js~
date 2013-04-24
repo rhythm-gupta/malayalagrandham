@@ -1,0 +1,6 @@
+$(document).ready(function () {
+  $("#id_author").autocomplete(
+     '/ajax/author/autocomplete/',
+     {multiple: true, multipleSeparator: ' '}
+  );
+});

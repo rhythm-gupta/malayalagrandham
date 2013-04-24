@@ -1,0 +1,30 @@
+{% if results %}
+	
+	<thead>
+		<tr valign="top">
+			<th class="alt">Id</th>
+			<th class="alt">Title</th>
+			<th class="alt">Author</th>
+			<th class="alt">Year</th>
+			<th class="alt"> </th>
+		</tr>
+	</thead>
+	{% for i in results %}
+		<tr valign="top" halign="center">
+		{% for j in i %}
+			<td>{{ j }}</td>
+		{% endfor %}
+		<td>
+		<form calss="form" action="/biblio/" method="POST">
+		<input type="hidden" name="book" value = "{{ i }}" />
+		<input type="hidden" name="ids_search" value = "{{ ids_search }}" />
+		<input class = "choose" type="submit" value="പൂര്‍ണ്ണവിവരം" />
+</form>
+</td>		
+		</tr>
+		
+	{% endfor %}
+	
+	
+
+{% endif %}	

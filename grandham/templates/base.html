@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+<title>മലയാള ഗ്രന്ഥവിവരം | {% block title %}{% endblock %}</title>
+
+<link rel="stylesheet" href="/site_media/snippets.css" type="text/css"/>
+<link rel="stylesheet" href="/site_media/pygments.css" type="text/css"/>
+<script type="text/javascript" src="/site_media/swanalekha.js"></script>
+<script type="text/javascript" src="/site_media/jquery.js"></script>
+{% block external %}{% endblock %}
+
+</head><body class="snippets" bgcolor="ebf7d1">
+<div id="header">
+<h1><a href="/">മലയാള ഗ്രന്ഥം</a></h1>
+
+<div id="nav-main">
+<span>
+{% if user.is_authenticated %}
+       welcome {{ user.username }}
+       (<a href="/logout">logout</a>)
+    {% else %}
+<a href="/login/">Log in</a> or <a href="/login">Register</a>
+{% endif %}
+</span>
+<ul>
+<li id="nav-snippets"><a href="/">Home</a></li>
+<li id="nav-about"><a href="/search">Search</a></li>
+<li id="nav-about"><a href="/about">About</a></li>
+<li id="nav-about"><a href="/credits">Credits</a></li>
+</ul>
+</div>
+</div>
+<h2>{% block head %}{% endblock %}</h2>
+<div id="content">
+{% block content %}{% endblock %}
+</div>
+<div id="footer">
+<div class="chunk">
+<h3>CopyLeft<img src="/sitemedia/copyleft.png"></h3>
+<h3>All Rights Reversed</h3>
+<ul>
+<li><a href="/license">Licence and Copyright</a></li>
+<li><a href="/credits">Malayalagrandhavivaram TaskForce</a></li>
+</ul>
+</div>
+</div>
+</body>
+</html>

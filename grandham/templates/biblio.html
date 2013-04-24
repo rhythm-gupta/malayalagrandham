@@ -1,0 +1,52 @@
+{%  extends "base.html" %}
+{%  block title %}പൂര്‍ണ്ണവിവരം{% endblock %}
+{%  block head %}പൂര്‍ണ്ണവിവരം{% endblock %}
+{% block content %}
+<div id="main">
+<a>
+   <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{ subject }} ({{ list.DDC }})</p>
+     <p>{{ list.Author }}</p>
+     <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ list.Title }}.  
+     	{% ifequal list.Vol 'None' %}
+     	{% else %}	
+     		വാല്യം {{ list.Vol }}; 
+		{% endifequal %}
+		{% ifequal list.Edition 'None' %}
+     	{% else %}	
+     		എഡിഷന്‍ {{ list.Edition }}. 
+		{% endifequal %}
+		{% ifequal list.Year 'None' %}
+     	{% else %}	
+     		{{ list.Year }}</p>
+     	{% endifequal %}
+ {% ifequal list.Titleorg 'None' %}
+ {% else %}	
+ <p>മൂലശീര്‍ഷകം: {{ list.Titleorg }}</p>
+ {% endifequal %}
+ <p>
+{% ifequal list.Preface 'None' %}
+ {% else %}	
+  മുഖവുര: {{ list.Preface }}; 
+{% endifequal %}
+{% ifequal list.Illustrator 'None' %}
+ {% else %}	
+  ചിത്രണം: {{ list.Illustrator }}
+{% endifequal %}  
+  </p> 
+  {% ifequal list.Series 'None' %}
+ {% else %}	
+ <p>പരമ്പര: {{ list.Series }}</p>
+ {% endifequal %}
+ {% ifequal list.publisher 'None' %}
+ {% else %}	
+ <p>{{ list.publisher }}</p>
+ {% endifequal %}
+ 
+ {% ifequal list.Location 'None' %}
+ {% else %}	
+ <p>[{{ list.Location }}]</p>
+ {% endifequal %}
+ </a>
+ </div>  
+       
+{% endblock %}
